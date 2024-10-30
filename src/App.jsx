@@ -32,6 +32,7 @@ import Profile, {loader as ProfileCustomerL, action as ProfileCustomerA} from '.
 import MerchantProfile, {loader as MerchantLoaderProfile, action as MerchantActionUpdate} from './pages/merchant/Profile';
 import MerchantOrders, {loader as MerchantOrderLoader} from './pages/merchant/Orders';
 import ViewOrder,{loader as OrderViewLoader } from './pages/customer/ViewOrder';
+import DataContext from './context/data';
 
 const initialOptions = {
   "client-id": "Ade90ExOQRf0oSF1PDxbAmrh7x3t9KsKyRv2aH-p0RD5sXM6EJXtGMwICl567C5sREE6uJgAN5TqyGFH",
@@ -160,7 +161,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <DataContext>
+      <RouterProvider router={router} />
+    </DataContext>
   )
 }
 
